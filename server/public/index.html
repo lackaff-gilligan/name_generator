@@ -5,13 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Baby Name Generator</title>
+    <!-- jQuery -->
     <script src="vendors/jquery-3.2.1.min.js"></script>
     <script src="scripts/client.js"></script>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="vendors/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="vendors/bootstrap/css/bootstrap-theme.css">
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
     <div class="container">
-        <h1>That baby needs a name!</h1>
+        <h1 class="text-center">That baby needs a name!</h1>
+       <form class="form-inline">
+           <div class="form-group">
+               <label for="bdayIn">Birthday</label>
+               <input type="text" id="bdayIn" class="form-control" placeholder="MM/DD/YYYY">
+           </div>
+            <div class="form-group">
+                <label for="heightIn">Height</label>
+                <input type="text" id="heightIn" class="form-control" placeholder="(inches)">
+            </div>
+            <div class="form-group">
+                <label for="eyeColorIn">Eye Color</label>
+            <input type="text" id="eyeColorIn" class="form-control" placeholder="hazel...">
+            </div>
+            <div class="form-group">
+                    <label for="spiritAnimal">Spirit Animal</label>
+                <input type="text" id="spiritAnimalIn" class="form-control" placeholder="snow leopard...">
+                </div>
+       </form>
+       <div class="row">
+           <div class="col-md-12 text-center">
+                <button type="submit" id="nameBtn" class="btn btn-default btn-lg">Name Baby</button>
+           </div>
+       </div>
+       
+        <table>
+
+        </table>
+
     </div>
-    
 </body>
 </html>
