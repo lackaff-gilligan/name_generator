@@ -3,6 +3,7 @@ $(document).ready(onReady);
 
 function onReady(){
     refreshBabyNames();
+    
 }
 
 function refreshBabyNames() {
@@ -31,11 +32,15 @@ function appendNamedBabiesToDom(arrOfNamedBabies) {
         var $tr = $('<tr></tr>');
         //attach data to the table row
         $tr.data('namedBaby', namedBaby);
-        $tr.append('<td>' + namedBaby.bday + '</td>');
+        // display only bday from string that's returned
+        var displayBDay = namedBaby.bday.substr(0, 10);
+        $tr.append('<td>' + displayBDay + '</td>');
         $tr.append('<td>' + namedBaby.height + ' inches</td>');
-        $tr.append('<td>' + namedBaby.spirit-animal + '</td>');
+        $tr.append('<td>' + namedBaby.eyeColor + '</td>');
+        $tr.append('<td>' + namedBaby.spiritAnimal + '</td>');
         $tr.append('<td>' + namedBaby.fName + '</td>');
         $tr.append('<td>' + namedBaby.mName + '</td>');
+        $tr.append('<td><button class="deleteBtn btn btn-danger btn-sm" data-id="' + namedBaby.id + '">DELETE</button></td>')
         $('#namesList').append($tr);
     }
 }
