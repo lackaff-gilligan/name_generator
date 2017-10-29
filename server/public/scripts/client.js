@@ -20,3 +20,22 @@ function refreshBabyNames() {
         console.log('Something went wrong with GET request');
     });
 }
+
+function appendNamedBabiesToDom(arrOfNamedBabies) {
+    //start with an empty tbody
+    $('#namesList').empty();
+    //loop through named babies and append to DOM
+    for (var i = 0; i < arrOfNamedBabies.length; i += 1) {
+        var namedBaby = arrOfNamedBabies[i];
+        //create a new tr
+        var $tr = $('<tr></tr>');
+        //attach data to the table row
+        $tr.data('namedBaby', namedBaby);
+        $tr.append('<td>' + namedBaby.bday + '</td>');
+        $tr.append('<td>' + namedBaby.height + ' inches</td>');
+        $tr.append('<td>' + namedBaby.spirit-animal + '</td>');
+        $tr.append('<td>' + namedBaby.fName + '</td>');
+        $tr.append('<td>' + namedBaby.mName + '</td>');
+        $('#namesList').append($tr);
+    }
+}
