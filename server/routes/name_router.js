@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
-var names = [];
+//var names = []; //<-- do I need this for anything now?
+//get access to the generateNames() from the module
 var generateNames = require('../modules/generateNames.js');
 console.log('generateNames:', generateNames());
 console.log('generateNames:', generateNames());

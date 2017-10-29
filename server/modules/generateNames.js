@@ -1,10 +1,11 @@
 var namesCollection = [ 'Glacier', 'Texas', 'Factotum', 'Montgomery', 'Frances', 'Sinclair',
 'Sidney', 'Rory', 'Taylor', 'Frugal', 'Exquisit', 'Majestic', 'Tranquil', 'Lee', 'Reese',
-'Astute', 'Phoenix', 'Sly', 'Addison', 'Bay', 'Avery', 'Bailey', 'Cameron', 'Devin', 'Frankie',
+'Astute', 'Phoenix', 'Sly', 'Desire', 'Bay', 'Colonel', 'Flee', 'Cameron', 'Justice', 'Frankie',
 'Jamie', 'Goodsport', 'Lake', 'Quinn', 'Wild'];
 
 function randomNumber() {
-    return Math.floor(Math.random() * 30);
+    //works because arrays are zero-indexed and I'm using Math.floor
+    return Math.floor(Math.random() * (namesCollection.length));
 }
 
 function generateNames() {
