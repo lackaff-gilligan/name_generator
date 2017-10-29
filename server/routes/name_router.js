@@ -1,6 +1,11 @@
 var express = require('express');
 var router = express.Router();
 var names = [];
+var generateNames = require('../modules/generateNames.js');
+console.log('generateNames:', generateNames());
+console.log('generateNames:', generateNames());
+console.log('generateNames:', generateNames());
+console.log('generateNames:', generateNames());
 
 var pg = require('pg');
 var config = {
