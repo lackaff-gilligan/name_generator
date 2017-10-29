@@ -3,7 +3,28 @@ $(document).ready(onReady);
 
 function onReady(){
     refreshBabyNames();
-    
+    $('#nameBtn').on('click', nameBtnClicked);
+}
+
+function nameBtnClicked() {
+    //store input values in variables
+    var babyBday = $('#bdayIn').val();
+    var babyHeight = $('#heightIn').val();
+    var babyEyeColor = $('#eyeColorIn').val();
+    var babySAnimal = $('#sAnimalIn').val();
+    console.log('baby bday:', babyBday);
+    console.log('baby height:', babyHeight);
+    // store info in object to send
+    var babyInfo = {
+        bday: babyBday,
+        height: babyHeight,
+        eyeColor: babyEyeColor,
+        sAnimal: babySAnimal
+    };
+    //clear input fields
+    $('input').val('');
+    //call function that makes POST request, pass it babyInfo object
+    addNewBaby(babyInfo);
 }
 
 function refreshBabyNames() {
@@ -43,4 +64,18 @@ function appendNamedBabiesToDom(arrOfNamedBabies) {
         $tr.append('<td><button class="deleteBtn btn btn-danger btn-sm" data-id="' + namedBaby.id + '">DELETE</button></td>')
         $('#namesList').append($tr);
     }
+}
+
+function addNewBaby(objToSend){
+   //POST request with a new baby to get named
+   $.ajax({
+       method: 'POST',
+       url: '/names',
+       data: objToSend
+   }).done(function(response){
+       console.log('response from POST req', response);
+       refreshBabyNames();
+   }).fail(function(error){
+       console.log('something went wrong in POST req');
+   });
 }

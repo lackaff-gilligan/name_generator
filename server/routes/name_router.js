@@ -3,10 +3,7 @@ var router = express.Router();
 //var names = []; //<-- do I need this for anything now?
 //get access to the generateNames() from the module
 var generateNames = require('../modules/generateNames.js');
-console.log('generateNames:', generateNames());
-console.log('generateNames:', generateNames());
-console.log('generateNames:', generateNames());
-console.log('generateNames:', generateNames());
+console.log('testing generateNames:', generateNames());
 
 var pg = require('pg');
 var config = {
@@ -45,5 +42,36 @@ router.get('/', function(req, res){
         }
     }); //END POOL
 }); //END GET ROUTE
+
+//POST ROUTE
+//Express removed the '/names' when we do a app.use
+router.post('/', function(req, res){
+    var babyInfo = req.body; //the data that was sent
+    console.log('req.body now babyInfo', babyInfo);
+    var namePairArr = generateNames(); //generate a new first and middle name pair
+    console.log('namePairArr:', namePairArr);
+    //attempt to connect to db
+    pool.connect(function(errorConnectingToDb, db, done){
+        if(errorConnectingToDb){
+            //there was an error and no connection was made
+            console.log('Error connecting in POST route', errorConnectingToDb);
+            res.sendStatus(500);
+        } else {
+            //successful connection to db! pool -1
+            var queryText = 'INSERT INTO "babyNames" ("bday", "height", "eyeColor", "spiritAnimal", "fName", "mName") VALUES ($1, $2, $3, $4, $5, $6);';
+            db.query(queryText, [babyInfo.bday, babyInfo.height, babyInfo.eyeColor, babyInfo.sAnimal, namePairArr[0], namePairArr[1]], function(errorMakingQuery, result){
+                //have received either an error or result at this point
+                done(); //pool +1
+                if (errorMakingQuery){
+                    console.log('Error making query', errorMakingQuery);
+                    res.sendStatus(500);
+                } else {
+                    //send back success!
+                    res.sendStatus(201);
+                }
+            }); //END QUERY
+        }
+    }); //END POOL
+});
 
 module.exports = router;
