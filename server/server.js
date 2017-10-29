@@ -6,7 +6,7 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended: true}));
 
 var nameRouter = require('./routes/name_router.js');
-app.use('/name', nameRouter);
+app.use('/names', nameRouter);
 
 // share static files, found in public folder
 app.use(express.static('server/public'));
