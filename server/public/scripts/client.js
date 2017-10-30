@@ -6,6 +6,8 @@ function onReady(){
     $('#nameBtn').on('click', nameBtnClicked);
     $('#namesList').on('click', '.deleteBtn', deleteBtnClicked);
 }
+//will hold the most recent name generated, used in modal
+var justNamed;
 
 function nameBtnClicked() {
     //store input values in variables
@@ -28,6 +30,12 @@ function nameBtnClicked() {
     addNewBaby(babyInfo);
 }
 
+function displayModal(recentName){
+    var modalText = recentName.fName.toUpperCase() + ' ' + recentName.mName.toUpperCase();
+    $('#showName').text(modalText);
+    $('#myModal').modal('show');
+}
+
 function refreshBabyNames() {
     // make GET request for all names on db
     $.ajax({
@@ -37,7 +45,12 @@ function refreshBabyNames() {
         console.log('response from GET req:', response);
         // Response is the named babies array
         var namedBabies = response;
+        //append Dom with full updated response
         appendNamedBabiesToDom(namedBabies);
+            //store most recent baby named in justNamed, will be used in modal
+            justNamed = namedBabies[namedBabies.length-1];
+            console.log('now justNamed:', justNamed);
+            //displayModal(justNamed);
     }).fail(function(error){
         // TODO -add alert to user
         console.log('Something went wrong with GET request');
@@ -76,6 +89,7 @@ function addNewBaby(objToSend){
    }).done(function(response){
        console.log('response from POST req', response);
        refreshBabyNames();
+//displayModal(justNamed); maybe I send a new GET req here for most recent data-id or something??
    }).fail(function(error){
        console.log('something went wrong in POST req');
    });
