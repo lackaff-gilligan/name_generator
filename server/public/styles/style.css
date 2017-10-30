@@ -1,6 +1,49 @@
+body{
+    background-color: #CCD9CE;
+}
+
+#title {
+    margin: 40px 40px 10px 40px;
+    font-size: 65px;
+    color: #AF0064;
+    font-family: 'Bungee Shade', cursive;
+}
+
+form, #nameBtn {
+    margin-bottom: 40px;
+}
+
+p {
+    font-weight: bold;
+    font-size: 18px;
+    margin: 40px;
+}
+
 input {
     margin-right: 5px;
 }
+
 #nameBtn {
     margin-top: 20px;
+    width: 150px;
+    height: 55px;
+    font-size: 22px;
+}
+
+tbody {
+   font-size: 16px;
+}
+
+th {
+    font-size: 18px;
+    color: #AF0064;
+}
+
+.name {
+    font-family: 'VT323', monospace;
+    font-size: 25px;
+}
+
+th, td {
+    font-weight: bold;
 }

@@ -12,11 +12,25 @@
     <link rel="stylesheet" href="vendors/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="vendors/bootstrap/css/bootstrap-theme.css">
     <!-- Custom Styles -->
+    <link href="https://fonts.googleapis.com/css?family=Bungee+Shade|VT323" rel="stylesheet">
     <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
     <div class="container">
-        <h1 class="text-center">That baby needs a name!</h1>
+        <h1 id="title" class="text-center">Name That Baby!</h1>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <p>Naming a new baby can be stressful, but it doesn’t have to be! 
+                    Simply fill in your new born’s demographic information, click the button, 
+                    and voila! Our scientifically proven algorithm generates the perfect 
+                    name for your little bundle of joy. It’s the secret method celebrities 
+                    have been using for years! Say, what do the parents of seven Olympic 
+                    gold medalists, two Oscar winning actresses, and three of the current 
+                    Supreme Court Justices have in common? They all named their babies using 
+                    our patent pending algorithm! What are you waiting for? Set your baby on 
+                    the track for success and click below for a bright future!</p>
+            </div>
+        </div>
        <form class="form-inline">
            <div class="form-group">
                <label for="bdayIn">Birthday</label>
@@ -37,20 +51,20 @@
        </form>
        <div class="row">
            <div class="col-md-12 text-center">
-                <button type="submit" id="nameBtn" class="btn btn-default btn-lg">Name Baby</button>
+                <button type="submit" id="nameBtn" class="btn btn-info btn-lg">Name Baby</button>
            </div>
        </div>
        
-        <table class="table table-striped">
+        <table class="table table-striped text-center">
             <thead>
                 <tr>
-                    <th>Birthday</th>
-                    <th>Height</th>
-                    <th>Eye Color</th>
-                    <th>Spirit Animal</th>
-                    <th>First Name</th>
-                    <th>Middle Name</th>
-                    <th>Delete</th>
+                    <th class="text-center">BIRTHDAY</th>
+                    <th class="text-center">HEIGHT</th>
+                    <th class="text-center">EYE COLOR</th>
+                    <th class="text-center">SPIRIT ANIMAL</th>
+                    <th class="text-center">FIRST NAME</th>
+                    <th class="text-center">MIDDLE NAME</th>
+                    <th class="text-center"></th>
                 </tr>
             </thead>
             <tbody id="namesList">

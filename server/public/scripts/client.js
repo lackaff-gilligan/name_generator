@@ -60,9 +60,9 @@ function appendNamedBabiesToDom(arrOfNamedBabies) {
         $tr.append('<td>' + namedBaby.height + ' inches</td>');
         $tr.append('<td>' + namedBaby.eyeColor + '</td>');
         $tr.append('<td>' + namedBaby.spiritAnimal + '</td>');
-        $tr.append('<td>' + namedBaby.fName + '</td>');
-        $tr.append('<td>' + namedBaby.mName + '</td>');
-        $tr.append('<td><button class="deleteBtn btn btn-danger btn-sm" data-id="' + namedBaby.id + '">DELETE</button></td>')
+        $tr.append('<td class="name">' + namedBaby.fName.toUpperCase() + '</td>');
+        $tr.append('<td class="name">' + namedBaby.mName.toUpperCase() + '</td>');
+        $tr.append('<td><button class="deleteBtn btn btn-warning btn-sm" data-id="' + namedBaby.id + '">DELETE</button></td>')
         $('#namesList').append($tr);
     }
 }
