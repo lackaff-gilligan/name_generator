@@ -1,7 +1,7 @@
 var namesCollection = [ 'Glacier', 'Texas', 'Factotum', 'Montgomery', 'Frances', 'Sinclair',
-'Sidney', 'Rory', 'Taylor', 'Frugal', 'Exquisit', 'Majestic', 'Tranquil', 'Lee', 'Reese',
+'Grass', 'Rory', 'Blizzard', 'Frugal', 'Exquisit', 'Majestic', 'Tranquil', 'Lee', 'Reese',
 'Astute', 'Phoenix', 'Sly', 'Desire', 'Bay', 'Colonel', 'Flee', 'Cameron', 'Justice', 'Frankie',
-'Jamie', 'Goodsport', 'Lake', 'Quinn', 'Wild'];
+'Jamie', 'Snap', 'Goodsport', 'Lake', 'Quinn', 'Wild', 'Tube', 'Shadow', 'Flash', 'Zeitgeist', 'Pop'];
 
 function randomNumber() {
     //works because arrays are zero-indexed and I'm using Math.floor
