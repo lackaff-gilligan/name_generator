@@ -4,6 +4,7 @@ $(document).ready(onReady);
 function onReady(){
     refreshBabyNames();
     $('#nameBtn').on('click', nameBtnClicked);
+    $('#namesList').on('click', '.deleteBtn', deleteBtnClicked);
 }
 
 function nameBtnClicked() {
@@ -78,4 +79,18 @@ function addNewBaby(objToSend){
    }).fail(function(error){
        console.log('something went wrong in POST req');
    });
+}
+
+function deleteBtnClicked(){
+    var namedBabyId = $(this).data('id');
+    console.log('delete baby with this namedBabyId:', namedBabyId);
+    //DELETE request
+    $.ajax({
+        method: 'DELETE',
+        url: '/names/' + namedBabyId //req.params
+    }).done(function(response){
+        refreshBabyNames();
+    }).fail(function(error){
+        console.log('something went wrong in DELETE request', error);
+    })
 }

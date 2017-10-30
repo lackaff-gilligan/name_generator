@@ -74,4 +74,30 @@ router.post('/', function(req, res){
     }); //END POOL
 });
 
+//DELETE ROUTE
+router.delete('/:id', function(req, res){
+    var babyId = req.params.id;
+    //attempt to connect to db
+    pool.connect(function(errorConnectingToDb, db, done){
+        if(errorConnectingToDb){
+            //there was an error and no connection was made
+            console.log('error connecting to db in DELETE route', errorConnectingToDb);
+            res.sendStatus(500);
+        } else {
+            //successful connection to db! pool -1
+            var queryText = 'DELETE FROM "babyNames" WHERE "id" = $1;';
+            db.query(queryText, [babyId], function(errorMakingQuery, result){
+                //have received either and error or result at this point
+                done(); //pool +1
+                if(errorMakingQuery){
+                    console.log('error making query in DELETE route', errorMakingQuery);
+                    res.sendStatus(500);
+                } else {
+                    res.send(result.rows);
+                }
+            }); //END QUERY
+        }
+    }); //END POOL
+}); //END DELETE ROUTE
+
 module.exports = router;
