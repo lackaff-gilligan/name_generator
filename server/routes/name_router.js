@@ -28,7 +28,7 @@ router.get('/', function(req, res){
             res.sendStatus(500);
         } else {
             //successful connection to db! pool -1
-            var queryText = 'SELECT * FROM "babyNames" ORDER BY "id" ASC;';
+            var queryText = 'SELECT * FROM "babyNames" ORDER BY "id" DESC;';
             db.query(queryText, function(errorMakingQuery, result){
                 //received either an error or a result at this point
                 done(); //pool +1

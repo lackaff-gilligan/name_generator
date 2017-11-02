@@ -48,9 +48,8 @@ function refreshBabyNames() {
         //append Dom with full updated response
         appendNamedBabiesToDom(namedBabies);
             //store most recent baby named in justNamed, will be used in modal
-            justNamed = namedBabies[namedBabies.length-1];
+            justNamed = namedBabies[0];
             console.log('now justNamed:', justNamed);
-            //displayModal(justNamed);
     }).fail(function(error){
         // TODO -add alert to user
         console.log('Something went wrong with GET request');
@@ -89,7 +88,10 @@ function addNewBaby(objToSend){
    }).done(function(response){
        console.log('response from POST req', response);
        refreshBabyNames();
-//displayModal(justNamed); maybe I send a new GET req here for most recent data-id or something??
+       //need to delay displayModal() until the justNamed value is updated
+     setTimeout(function(){
+         displayModal(justNamed);
+      }, 300); 
    }).fail(function(error){
        console.log('something went wrong in POST req');
    });

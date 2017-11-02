@@ -39,9 +39,23 @@ th {
     color: #AF0064;
 }
 
-.name {
+/*.name {
     font-family: 'VT323', monospace;
     font-size: 25px;
+}*/
+
+#showName {
+    font-family: 'VT323', monospace;
+    color: blue;
+    font-size: 45px;
+}
+
+.modal-body {
+    background-color: pink;
+}
+
+.modal-header, .modal-footer {
+    background-color: lightpink;
 }
 
 th, td {
